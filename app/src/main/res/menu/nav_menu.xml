@@ -1,0 +1,43 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+        <item android:title="@string/all_nav">
+        <menu>
+        <item
+            android:id="@+id/nav_call"
+            android:icon="@drawable/nav_call"
+            android:title="Call"/>
+        <item
+            android:id="@+id/nav_friends"
+            android:icon="@drawable/nav_friends"
+            android:title="Friends"/>
+        <item
+            android:id="@+id/nav_location"
+            android:icon="@drawable/nav_location"
+            android:title="Location"/>
+        <item
+            android:id="@+id/nav_mail"
+            android:icon="@drawable/nav_mail"
+            android:title="Mail"/>
+        <item
+            android:id="@+id/nav_task"
+            android:icon="@drawable/nav_task"
+            android:title="Tasks"/>
+        </menu>
+        </item>
+
+    <item android:title="@string/other_nav">
+
+        <menu>
+            <item
+                android:id="@+id/about"
+                android:title="@string/about_nav"/>
+            <item
+                android:id="@+id/exit"
+                android:title="@string/exit_nav"
+                />
+        </menu>
+    </item>
+
+</menu>
