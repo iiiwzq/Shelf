@@ -1,46 +1,58 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#bbd3da"
+    android:background="@color/blue_semi_transparent_pressed"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
     app:cardCornerRadius="5dp">
 
-    <RelativeLayout
+    <LinearLayout
         android:orientation="vertical"
-        android:background="#bbd3da"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/goodsName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sb11111111"
-            android:layout_margin="10dp"
-            />
+        <ImageView
+            android:id="@+id/goods_image"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:src="@drawable/background" />
 
-        <TextView
-            android:id="@+id/classification"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/goodsName"
-            android:layout_margin="10dp"
-            android:text="shuiguo"
-            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_margin="10dp"
-            android:layout_toRightOf="@+id/classification"
-            android:layout_below="@id/goodsName"
-            android:text="15.222"
-            />
+            <TextView
+                android:id="@+id/goodsName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="goodsName"
+                />
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/classification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_toRightOf="@id/goodsName"
+                android:text="classification" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_margin="10dp"
+                android:layout_below="@id/goodsName"
+                android:text="price"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
 
 </android.support.v7.widget.CardView>

@@ -1,4 +1,4 @@
-package com.example.recyclerviewtest;
+package com.example.recyclerviewtest.myclass;
 
 /**
  * Created by lenovo on 2018/5/23.

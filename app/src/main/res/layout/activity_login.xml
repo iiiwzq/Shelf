@@ -8,11 +8,20 @@
 
     android:layout_height="match_parent"
 
-    android:background="#fff"
+    android:background="@color/gray_light"
 
     android:orientation="vertical">
 
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="登录界面"
+        android:gravity="center"
+        android:textSize="30sp"
+        />
+    <View android:layout_width="match_parent" android:layout_height="@dimen/dp_1"
+        android:background="@color/orange_main"
+        />
     <RelativeLayout
 
         android:layout_width="match_parent"

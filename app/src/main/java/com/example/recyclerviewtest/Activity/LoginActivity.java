@@ -1,26 +1,25 @@
-package com.example.recyclerviewtest;
+package com.example.recyclerviewtest.Activity;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Message;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.InputType;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.recyclerviewtest.myclass.Constant;
+import com.example.recyclerviewtest.R;
+import com.example.recyclerviewtest.myclass.User;
 import com.example.recyclerviewtest.util.HttpUtil;
 import com.example.recyclerviewtest.util.SharedPreferencesUtils;
 import com.example.recyclerviewtest.util.Utility;
@@ -52,9 +51,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+//        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
 
-        if (Build.VERSION.SDK_INT >= 21) {
+        /*if (Build.VERSION.SDK_INT >= 21) {
             //得到当前界面的装饰视图
             View decorView = getWindow().getDecorView();
 //        SYSTEM_UI_FLAG_FULLSCREEN表示全屏的意思，也就是会将状态栏隐藏
@@ -62,7 +63,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
 
             getWindow().setStatusBarColor(Color.TRANSPARENT);
-        }
+        }*/
         initViews();
         setupEvents();
         initData();
@@ -127,8 +128,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      * 把本地保存的数据设置到输入框中
      */
     public void setTextNameAndPassword() {
-        et_name.setText("" + getLocalName());
-        et_password.setText("" + getLocalPassword());
+        et_name.setText(getLocalName());
+        et_password.setText(getLocalPassword());
         et_name.requestFocus();
         et_name.setSelection(et_name.length());
     }
@@ -137,7 +138,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      * 设置数据到输入框中
      */
     public void setTextName() {
-        et_name.setText("" + getLocalName());
+        et_name.setText(getLocalName());
         et_name.requestFocus();
         et_name.setSelection(et_name.length());
     }
@@ -314,17 +315,26 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      * 设置密码可见与不可见的相互转换
      */
     private void setPasswordVisibility() {
+
         if (iv_see_password.isSelected()) {
             iv_see_password.setSelected(false);
             //密码不可见
             et_password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            if(et_name.isFocusable()) {
+                et_name.requestFocus();
+                et_name.setSelection(et_name.length());
+            }
         } else {
             iv_see_password.setSelected(true);
             //密码可见
             et_password.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+            if(et_password.isFocusable()) {
+                et_password.requestFocus();
+                et_password.setSelection(et_password.length());
+            }
         }
-        et_password.requestFocus();
-        et_password.setSelection(et_name.length());
+
+
     }
 
     /**

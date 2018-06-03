@@ -21,9 +21,9 @@
             android:icon="@drawable/nav_mail"
             android:title="Mail"/>
         <item
-            android:id="@+id/nav_task"
-            android:icon="@drawable/nav_task"
-            android:title="Tasks"/>
+            android:id="@+id/shopping"
+            android:icon="@drawable/shopping"
+            android:title="我的购物车"/>
         </menu>
         </item>
 

@@ -6,6 +6,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ShowGoodsActivityTheme" parent="AppTheme">
+
+    </style>
+
     <style name="BaseStyle" parent="@android:style/Theme.Holo.Light">
         <item name="android:windowNoTitle">true</item>
     </style>

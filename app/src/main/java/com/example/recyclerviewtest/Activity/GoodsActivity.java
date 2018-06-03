@@ -1,4 +1,4 @@
-package com.example.recyclerviewtest;
+package com.example.recyclerviewtest.Activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -7,19 +7,21 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.recyclerviewtest.myclass.Constant;
+import com.example.recyclerviewtest.myclass.Goods;
+import com.example.recyclerviewtest.adapter.GoodsAdapter;
+import com.example.recyclerviewtest.R;
 import com.example.recyclerviewtest.util.HttpUtil;
 import com.example.recyclerviewtest.util.SharedPreferencesUtils;
 import com.example.recyclerviewtest.util.Utility;
@@ -95,6 +97,9 @@ public class GoodsActivity extends AppCompatActivity {
                         });
                         alert.show();
                         break;
+                    case R.id.shopping:
+                        startActivity(  new Intent(GoodsActivity.this,ShoppingCartActivity.class));
+                        break;
                     default:
                         break;
                 }
@@ -114,7 +119,7 @@ public class GoodsActivity extends AppCompatActivity {
 //        ActionBar actionBar = getSupportActionBar();
 //        if (actionBar != null) {
 //            actionBar.setDisplayHomeAsUpEnabled(false);
-            toolbar_title.setText(TitleName);
+        toolbar_title.setText(TitleName);
 //        }
         findViewById(R.id.head_icon).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,7 +158,8 @@ public class GoodsActivity extends AppCompatActivity {
     private void showGoodsInfo() {
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        GridLayoutManager layoutManager = new GridLayoutManager(this,2);
+//        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 
         recyclerView.setLayoutManager(layoutManager);
 
@@ -180,7 +186,6 @@ public class GoodsActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 final String responseText = response.body().string();
                 GoodsList = Utility.handleGoodsResponse(responseText);
-                Log.d("responseData", GoodsList.get(1).getGoodsName());
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {

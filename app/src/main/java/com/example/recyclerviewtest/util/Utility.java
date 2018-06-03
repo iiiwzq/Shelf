@@ -1,17 +1,12 @@
 package com.example.recyclerviewtest.util;
 
-import android.text.TextUtils;
-import android.util.Log;
-
-import com.example.recyclerviewtest.Goods;
-import com.example.recyclerviewtest.User;
+import com.example.recyclerviewtest.myclass.Goods;
+import com.example.recyclerviewtest.myclass.Message;
+import com.example.recyclerviewtest.myclass.ShoppingCartBean;
+import com.example.recyclerviewtest.myclass.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +48,34 @@ public class Utility {
             return gson.fromJson(response, User.class);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        return null;
+    }
+    /**
+     * 将返回的JSON数据解析成Message实体类
+     */
+    public static Message handleMessageResponse(String response){
+        try{
+            return gson.fromJson(response,Message.class);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+    /**
+     * 将返回的JSON数据解析成ShoppingCartAdapter
+     */
+    public static List<ShoppingCartBean> handleShoppingCartResponse(String response){
+
+        try {
+            List<ShoppingCartBean> list = gson.fromJson(response, new TypeToken<ArrayList<ShoppingCartBean>>() {
+            }.getType());
+            return list;
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
         }
         return null;
     }

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/blue_semi_transparent_pressed"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="5dp">
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="100dp">
+
+
+    <CheckBox
+        android:id="@+id/ck_choose"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="3dp"
+        android:button="@drawable/check_box_style"
+        android:scaleX="0.6"
+        android:scaleY="0.6" />
+
+    <ImageView
+        android:id="@+id/iv_show_pic"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/ck_choose"
+        android:layout_marginLeft="5dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/iv_show_pic"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_commodity_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="酒红色纯红色纯羊毛西服套装"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/clothes_class"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="分类:"
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/tv_commodity_attr"
+                android:layout_toRightOf="@id/clothes_class"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="上衣"
+                android:textSize="12sp"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/clothes_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥"
+                android:textColor="@color/red"
+                android:textSize="12sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tv_commodity_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/clothes_price"
+                android:text="390"
+                android:textColor="@color/red"
+                android:textSize="12sp"
+                android:textStyle="bold"/>
+            <LinearLayout
+                android:id="@+id/r1_edit"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="80dp"
+                android:layout_toRightOf="@id/clothes_price"
+                android:background="@color/light_gray">
+                <TextView
+                    android:id="@+id/iv_sub"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:background="@color/white_c"
+                    android:layout_margin="1dp"
+                    android:text=" - "/>
+                <TextView
+                    android:id="@+id/tv_commodity_show_num"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="@color/white_c"
+                    android:layout_margin="1dp"
+                    android:text="1"/>
+                <TextView
+                    android:id="@+id/iv_add"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:background="@color/white_c"
+                    android:layout_margin="1dp"
+                    android:text=" + "/>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>
+</android.support.v7.widget.CardView>
